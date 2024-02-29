@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      padding-top: 60px;
+    }
+    footer {
+      background-color: #000000;
+      padding: 20px 0;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Exodus Licenses</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'store' %}">Products</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% for single_pro in aboutus %}
+  <img src="{{single_pro.image.url}}" style="max-width: 50%; float: center;">
+  {% endfor %}
+  <div class="container" style="margin-top: 1%;">
+    <h1>About Us</h1>
+    <p style="font-size: larger;">Welcome to the Exodus Licenses Software Store, your premier destination for acquiring high-quality licensed software solutions tailored to meet your business and personal needs.</p>
+    <h1 style="margin-top: 5%;">Our Mission</h1>
+    <p style="font-size: larger;">At Exodus Licenses, we are driven by a singular mission: to empower individuals and businesses with the tools they need to succeed in today's digital age. We understand the pivotal role that software plays in enhancing productivity, efficiency, and innovation. Therefore, we are committed to providing our customers with access to a wide range of cutting-edge software products 
+      that cater to various industries and applications.</p>
+    <h1 style="margin-top: 5%;">Exceptional Customer Service</h1>
+    <p style="font-size: larger;" >At Exodus Licenses Software Store, customer satisfaction is our top priority. Our team of knowledgeable and dedicated professionals is here to assist you every step of the way. Whether you have questions about a specific product, need guidance on selecting the right software 
+      for your needs, or require technical support, we are always ready to provide prompt and personalized assistance.</p>
+  </div>
+  <footer style="margin-top: 3%;">
+    <div class="container">
+      <p> 2024 Exodus Licenses</p>
+    </div>
+  </footer>
+</body>
+</html>

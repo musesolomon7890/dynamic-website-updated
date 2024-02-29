@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      padding-top: 60px;
+    }
+    .card {
+      margin-bottom: 20px;
+     }
+     footer {
+      background-color: #000000;
+      padding: 20px 0;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Exodus Licenses</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'store' %}">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+   
+  <div class="container" style="margin-top: 2%;">
+    <h1>Our Products</h1>
+    <div class="row" style="margin-top: 2%;">
+      {% for single_pro in product %}
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card"  style="max-height:min-content;">
+          <img src="{{single_pro.image.url}}" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">{{single_pro.product_name}}</h5>
+            <p class="card-text">{{single_pro.product_dis}}</p>
+            <p class="card-text">Price: {{single_pro.price}}</p>
+            <a href="#" class="btn btn-primary">Add to cart</a>
+          </div>
+        </div>
+   </div>
+      {% endfor %}
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <p>2024 Exodus Licenses</p>
+    </div>
+  </footer>
+</body>
+</html>
